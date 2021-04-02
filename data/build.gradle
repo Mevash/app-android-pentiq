@@ -1,0 +1,23 @@
+plugins {
+    id 'java-library'
+    id 'kotlin'
+    id 'kotlin-kapt'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
+}
+
+dependencies {
+
+    implementation project(':domain')
+
+    def dataDependencies = rootProject.ext.dataDependencies
+
+    implementation dataDependencies.coroutinesAndroid
+    implementation dataDependencies.coroutinesCore
+    implementation dataDependencies.roomRuntime
+
+    kapt dataDependencies.roomCompiler
+}

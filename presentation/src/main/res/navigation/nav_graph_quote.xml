@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_quote"
+    app:startDestination="@id/quote_fragment">
+
+    <fragment
+        android:id="@+id/quote_fragment"
+        android:name="com.example.pentiq.ui.quote.QuoteFragment">
+
+    </fragment>
+</navigation>

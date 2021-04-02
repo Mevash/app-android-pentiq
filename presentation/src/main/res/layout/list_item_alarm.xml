@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="com.example.pentiq.ui.alarm.ScheduledAlarmPresenter" />
+
+
+        <variable
+            name="checkedChangeListener"
+            type="android.widget.CompoundButton.OnCheckedChangeListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_front"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingStart="24dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="16dp">
+
+        <!--    Todo: extract integers-->
+
+        <TextView
+            android:id="@+id/alarm_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{presenter.time}"
+            android:textColor="@color/black"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="8:45" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/alarm_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@{presenter.enabled}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:onCheckedChangeListener="@{checkedChangeListener}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

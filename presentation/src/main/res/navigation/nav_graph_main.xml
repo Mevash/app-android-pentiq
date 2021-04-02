@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/alarm_page_fragment">
+
+    <fragment
+        android:id="@+id/quote_page_fragment"
+        android:name="com.example.pentiq.ui.quote.QuoteFragment"
+        android:label="Quote"
+        tools:layout="@layout/fragment_quote" />
+
+    <fragment
+        android:id="@+id/alarm_page_fragment"
+        android:name="com.example.pentiq.ui.alarm.ScheduledAlarmsFragment"
+        android:label="Alarm"
+        tools:layout="@layout/fragment_scheduled_alarms" />
+
+    <fragment
+        android:id="@+id/settings_page_fragment"
+        android:name="com.example.pentiq.ui.settings.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>

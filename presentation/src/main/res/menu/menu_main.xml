@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/quote_page_fragment"
+        android:enabled="true"
+        android:menuCategory="secondary"
+        android:title="Quote" />
+    <item
+        android:id="@+id/alarm_page_fragment"
+        android:enabled="true"
+        android:menuCategory="secondary"
+        android:title="Alarm" />
+    <item
+        android:id="@+id/settings_page_fragment"
+        android:enabled="true"
+        android:menuCategory="secondary"
+        android:title="Settings" />
+
+<!--    TODO: Manage backstack https://stackoverflow.com/questions/58262507/how-to-manage-bottomnavigationview-backstack-in-android-navigation-component-->
+</menu>

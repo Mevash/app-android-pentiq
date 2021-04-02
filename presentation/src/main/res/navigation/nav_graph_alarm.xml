@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_alarm"
+    app:startDestination="@id/alarm_fragment">
+
+    <fragment
+        android:id="@+id/alarm_fragment"
+        android:name="com.example.pentiq.ui.alarm.ScheduledAlarmsFragment">
+
+    </fragment>
+</navigation>
