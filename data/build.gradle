@@ -17,6 +17,9 @@ dependencies {
 
     implementation dataDependencies.coroutinesAndroid
     implementation dataDependencies.coroutinesCore
+
+    implementation dataDependencies.joda
+
     implementation dataDependencies.roomRuntime
 
     kapt dataDependencies.roomCompiler

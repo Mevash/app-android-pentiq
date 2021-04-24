@@ -11,7 +11,8 @@ class UseCaseModule {
             //  Alarm Use Cases
             factory<AddAlarmUseCase> { getObject(::AddAlarmToRoomUseCase) }
             factory<DeleteAlarmUseCase> { getObject(::DeleteAlarmFromRoomUseCase) }
-            factory<LoadAlarmsUseCase> { getObject(::LoadAlarmsFromRoomUseCase) }
+            factory<GetAllAlarmsUseCase> { getObject(::GetAllAlarmsFromRoomUseCase) }
+            factory<GetEnabledAlarmsUseCase> { getObject(::GetEnabledAlarmsFromRoomUseCase) }
             factory<UpdateAlarmUseCase> { getObject(::UpdateAlarmInRoomUseCase) }
         }
     }

@@ -3,10 +3,10 @@
     package="com.example.pentiq">
 
     <application
-        android:allowBackup="true"
+        android:name=".application.PentiqApplication"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name=".application.PentiqApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Pentiq">
@@ -17,6 +17,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".receiver.AlarmReceiver" />
     </application>
 
 </manifest>

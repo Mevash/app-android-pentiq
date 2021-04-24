@@ -1,12 +1,16 @@
 package com.example.pentiq.ui.alarm
 
+import android.app.AlarmManager
+import android.content.Context.ALARM_SERVICE
 import android.graphics.Canvas
 import android.util.Log
 import android.view.View
 import com.airbnb.epoxy.EpoxyTouchHelper
 import com.example.domain.model.Alarm
+import com.example.domain.util.Resource
 import com.example.pentiq.AlarmBindingModel_
 import com.example.pentiq.databinding.FragmentScheduledAlarmsBinding
+import com.example.pentiq.scheduler.NotificationAlarmScheduler
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import org.joda.time.DateTime
@@ -53,20 +57,21 @@ class ScheduledAlarmsPresenter(
             .withTarget(AlarmBindingModel_::class.java)
             .andCallbacks(this)
 
-        scheduledAlarmsViewModel.scheduledAlarmListItems.observe(fragment.viewLifecycleOwner, {
+        scheduledAlarmsViewModel.allAlarms.observe(fragment.viewLifecycleOwner) {
             when (it.status) {
-                com.example.domain.util.Resource.Status.SUCCESS -> {
-                    Log.d("HEN", "Success")
+                Resource.Status.SUCCESS -> {
+                    Log.d("HEN", "Success - allAlarms")
                     scheduledAlarmController.setData(it.data)
+
                 }
-                com.example.domain.util.Resource.Status.ERROR -> {
-                    Log.d("HEN", "Error")
+                Resource.Status.ERROR -> {
+                    Log.d("HEN", "Error - allAlarms")
                 }
-                com.example.domain.util.Resource.Status.LOADING -> {
-                    Log.d("HEN", "Loading")
+                Resource.Status.LOADING -> {
+                    Log.e("HEN", "Loading - allAlarms")
                 }
             }
-        })
+        }
     }
 
     private fun onAlarmCheckedChangeListener(alarm: Alarm) {
@@ -79,7 +84,7 @@ class ScheduledAlarmsPresenter(
 
     override fun onSwipeProgressChanged(model: AlarmBindingModel_, itemView: View, progress: Float, canvas: Canvas) {
         val alpha = (abs(progress) * 255).toInt()
-        canvas.drawARGB(alpha, 255, 0,0)
+        canvas.drawARGB(alpha, 255, 0, 0)
     }
 
     override fun isSwipeEnabledForModel(model: AlarmBindingModel_?) = true

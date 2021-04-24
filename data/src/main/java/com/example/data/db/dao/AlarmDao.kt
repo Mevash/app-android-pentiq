@@ -10,8 +10,8 @@ interface AlarmDao {
     @Query("SELECT * FROM ${AlarmEntity.TABLE_NAME} ORDER BY ${AlarmEntity.COLUMN_HOUR},${AlarmEntity.COLUMN_MINUTE}")
     fun alarms(): Flow<List<AlarmEntity>>
 
-    @Query("SELECT * FROM ${AlarmEntity.TABLE_NAME} WHERE ${AlarmEntity.COLUMN_ENABLED} ORDER BY ${AlarmEntity.COLUMN_HOUR},${AlarmEntity.COLUMN_MINUTE}")
-    fun enabledAlarms(): Flow<List<AlarmEntity>>
+    @Query("SELECT * FROM ${AlarmEntity.TABLE_NAME} WHERE ${AlarmEntity.COLUMN_ENABLED} = :enabled ORDER BY ${AlarmEntity.COLUMN_HOUR},${AlarmEntity.COLUMN_MINUTE}")
+    fun alarms(enabled: Boolean): Flow<List<AlarmEntity>>
 
     @Insert
     suspend fun insertAlarm(alarmEntity: AlarmEntity)

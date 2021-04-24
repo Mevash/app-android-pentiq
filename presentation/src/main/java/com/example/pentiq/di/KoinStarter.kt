@@ -16,6 +16,7 @@ class KoinStarter {
                     MapperModule.module,
                     RepositoryModule.module,
                     RoomModule.module,
+                    SchedulerModule.module,
                     ViewModelModule.module,
                     UseCaseModule.module
                 )

@@ -15,7 +15,7 @@ class RoomAlarmDataSource(
     }
 
     override fun enabledAlarms(): Flow<List<Alarm>> {
-        return alarmDao.enabledAlarms().map { mapper.fromEntityList(it) }
+        return alarmDao.alarms(true).map { mapper.fromEntityList(it) }
     }
 
     override suspend fun addAlarm(alarm: Alarm) {

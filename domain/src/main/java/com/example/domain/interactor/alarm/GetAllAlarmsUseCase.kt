@@ -8,11 +8,11 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
 
-interface LoadAlarmsUseCase {
+interface GetAllAlarmsUseCase {
     suspend operator fun invoke(): Flow<Resource<List<Alarm>>>
 }
 
-class LoadAlarmsFromRoomUseCase(private val alarmRepository: AlarmRepository) : LoadAlarmsUseCase {
+class GetAllAlarmsFromRoomUseCase(private val alarmRepository: AlarmRepository) : GetAllAlarmsUseCase {
 
     override suspend fun invoke(): Flow<Resource<List<Alarm>>> {
         return alarmRepository.alarms()
